@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CozyVintageLife – 1950s Vintage Fashion & Art</title>
+  <meta name="description" content="Discover the elegance of 1950s vintage fashion through beautiful coloring books, art prints, and curated finds for creative women." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:   #F9F4ED;
+      --warm:    #F0E6D3;
+      --blush:   #E8C5B0;
+      --rose:    #C0856A;
+      --burgundy:#8B3A3A;
+      --charcoal:#2C2C2C;
+      --gold:    #B8925A;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--charcoal); }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(249,244,237,0.92); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--blush);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-style: italic;
+      color: var(--burgundy); text-decoration: none; letter-spacing: 0.02em;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--charcoal); text-decoration: none; font-weight: 700;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--rose); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, var(--warm) 0%, var(--cream) 60%, #EDE0CF 100%);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 100px 5% 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 20% 80%, rgba(192,133,106,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(184,146,90,0.06) 0%, transparent 50%);
+    }
+    .hero-inner { position: relative; max-width: 720px; }
+    .hero-eyebrow {
+      font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); font-weight: 700; margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      line-height: 1.15; color: var(--burgundy);
+      margin-bottom: 1.4rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--rose); }
+    .hero p {
+      font-size: 1.1rem; line-height: 1.8; color: #5a4a40;
+      max-width: 540px; margin: 0 auto 2.4rem;
+    }
+    .btn {
+      display: inline-block; padding: 0.9rem 2.4rem;
+      background: var(--burgundy); color: #fff;
+      font-family: 'Lato', sans-serif; font-size: 0.85rem;
+      font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      text-decoration: none; border-radius: 2px;
+      transition: background .25s, transform .2s;
+    }
+    .btn:hover { background: var(--rose); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--burgundy);
+      border: 1.5px solid var(--burgundy); margin-left: 1rem;
+    }
+    .btn-outline:hover { background: var(--burgundy); color: #fff; }
+
+    /* decorative divider */
+    .divider {
+      display: flex; align-items: center; gap: 1rem;
+      max-width: 200px; margin: 3rem auto;
+    }
+    .divider span { flex: 1; height: 1px; background: var(--blush); }
+    .divider i { color: var(--gold); font-size: 0.7rem; }
+
+    /* ─── ABOUT / FEATURED ─── */
+    .section { padding: 90px 5%; max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); font-weight: 700; margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      color: var(--burgundy); line-height: 1.2; margin-bottom: 1.2rem;
+    }
+    .section-body { font-size: 1rem; line-height: 1.85; color: #5a4a40; max-width: 560px; }
+
+    /* two-col layout */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .two-col.reverse { direction: rtl; }
+    .two-col.reverse > * { direction: ltr; }
+
+    /* product card */
+    .product-card {
+      background: #fff; border-radius: 4px;
+      box-shadow: 0 8px 40px rgba(100,50,30,0.10);
+      overflow: hidden; transition: transform .3s;
+    }
+    .product-card:hover { transform: translateY(-6px); }
+    .product-img {
+      width: 100%; aspect-ratio: 4/5; object-fit: cover;
+      background: linear-gradient(135deg, #F0E6D3 0%, #DDD0BC 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; }
+    .product-body { padding: 1.8rem; }
+    .product-tag {
+      font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); font-weight: 700; margin-bottom: 0.6rem;
+    }
+    .product-title {
+      font-family: 'Playfair Display', serif; font-size: 1.35rem;
+      color: var(--burgundy); margin-bottom: 0.8rem; line-height: 1.3;
+    }
+    .product-desc { font-size: 0.9rem; line-height: 1.7; color: #7a6559; margin-bottom: 1.4rem; }
+    .product-meta { font-size: 0.75rem; color: #9a8880; margin-top: 1rem; }
+
+    /* ─── FEATURES GRID ─── */
+    .features-bg {
+      background: linear-gradient(135deg, var(--warm) 0%, #EDE0CF 100%);
+      padding: 90px 5%;
+    }
+    .features-inner { max-width: 1100px; margin: 0 auto; }
+    .features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
+    .feature-item {
+      background: var(--cream); padding: 2rem 1.8rem;
+      border-radius: 4px; border-top: 3px solid var(--blush);
+      transition: border-color .2s, transform .2s;
+    }
+    .feature-item:hover { border-color: var(--rose); transform: translateY(-4px); }
+    .feature-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+    .feature-title {
+      font-family: 'Playfair Display', serif; font-size: 1.1rem;
+      color: var(--burgundy); margin-bottom: 0.6rem;
+    }
+    .feature-text { font-size: 0.88rem; line-height: 1.7; color: #7a6559; }
+
+    /* ─── PINTEREST CTA ─── */
+    .pinterest-section {
+      padding: 90px 5%;
+      background: var(--cream);
+    }
+    .pinterest-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+    .pinterest-pins { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .pin-placeholder {
+      border-radius: 6px; overflow: hidden;
+      background: linear-gradient(160deg, #EDE0CF, #DDD0BC);
+      aspect-ratio: 2/3;
+      display: flex; align-items: flex-end;
+      padding: 1rem;
+    }
+    .pin-placeholder:nth-child(2) { background: linear-gradient(160deg, #E8C5B0, #C8A090); margin-top: 1.5rem; }
+    .pin-placeholder:nth-child(3) { background: linear-gradient(160deg, #D4C5B5, #BCA895); }
+    .pin-placeholder:nth-child(4) { background: linear-gradient(160deg, #E0D0C0, #C8B8A8); margin-top: -1.5rem; }
+    .pin-label {
+      font-family: 'Playfair Display', serif; font-size: 0.8rem;
+      color: rgba(255,255,255,0.9); font-style: italic;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--charcoal); color: rgba(255,255,255,0.6);
+      text-align: center; padding: 2.5rem 5%;
+      font-size: 0.82rem; line-height: 1.8;
+    }
+    footer a { color: var(--blush); text-decoration: none; }
+    footer a:hover { color: var(--blush); text-decoration: underline; }
+    footer .footer-brand {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 1.2rem; color: var(--blush); margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .two-col, .features-grid, .pinterest-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .two-col.reverse { direction: ltr; }
+      .nav-links { display: none; }
+      .btn-outline { margin-left: 0; margin-top: 0.8rem; }
+      .hero-buttons { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
+      .pinterest-pins { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">CozyVintageLife</a>
+  <ul class="nav-links">
+    <li><a href="#featured">Shop</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#pinterest">Pinterest</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">✦ Vintage Elegance · Creative Living ✦</p>
+    <h1>Rediscover the <em>Art</em><br/>of 1950s Style</h1>
+    <p>Curated vintage fashion finds, coloring books, and creative gifts for women who love the timeless beauty of retro aesthetics.</p>
+    <div class="hero-buttons">
+      <a class="btn" href="#featured">Explore the Collection</a>
+      <a class="btn btn-outline" href="https://www.pinterest.com/CozyVintageLife7/" target="_blank" rel="noopener">Follow on Pinterest</a>
+    </div>
+    <div class="divider"><span></span><i>✦</i><span></span></div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCT -->
+<section class="section" id="featured">
+  <div class="two-col">
+    <div>
+      <p class="section-label">✦ Featured Pick</p>
+      <h2 class="section-title">A Love Letter to<br/>1950s Fashion</h2>
+      <p class="section-body">
+        Immerse yourself in the golden age of style with this stunning coloring book by Emma Rose. Over 50 hand-drawn illustrations capture the silhouettes, fabrics, and spirit of 1950s fashion — perfect for creative women, vintage lovers, and anyone who needs a mindful escape.
+      </p>
+      <br/>
+      <p class="section-body" style="font-size:0.88rem; color:#9a8880;">
+        Perfect for birthdays, Mother's Day, Christmas, or simply treating yourself.
+      </p>
+      <br/><br/>
+      <!-- AFFILIATE LINK PLACEHOLDER — replace with your full Amazon Associates link -->
+      <a class="btn" href="https://www.amazon.com/1950s-Fashion-Coloring-Women-Teens/dp/B0GNZZ7T6F" target="_blank" rel="noopener sponsored">
+        Shop on Amazon →
+      </a>
+      <p style="font-size:0.72rem; color:#b0a090; margin-top:1rem;">
+        * This page contains affiliate links. I may earn a small commission at no extra cost to you.
+      </p>
+    </div>
+    <div class="product-card">
+      <div class="product-img">
+        <!-- Book cover will appear here; swap src for real image if available -->
+        <img src="https://m.media-amazon.com/images/I/71example-placeholder.jpg"
+             onerror="this.style.display='none'"
+             alt="1950s Fashion Coloring Book" />
+        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:100%; padding:2rem; text-align:center; font-family:'Playfair Display',serif;">
+          <p style="font-size:0.7rem; letter-spacing:0.2em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem;">Emma Rose</p>
+          <p style="font-size:1.5rem; color:var(--burgundy); line-height:1.3; font-style:italic;">1950s Fashion<br/>Coloring Book</p>
+          <p style="font-size:0.8rem; color:var(--rose); margin-top:0.8rem;">for Women & Teens</p>
+        </div>
+      </div>
+      <div class="product-body">
+        <p class="product-tag">✦ Adult Coloring Book</p>
+        <h3 class="product-title">1950s Fashion Coloring Book for Women and Teens</h3>
+        <p class="product-desc">50+ unique vintage fashion illustrations. Stress-relief coloring for adults who love retro elegance.</p>
+        <a class="btn" href="https://www.amazon.com/1950s-Fashion-Coloring-Women-Teens/dp/B0GNZZ7T6F" target="_blank" rel="noopener sponsored" style="font-size:0.8rem; padding:0.7rem 1.6rem;">
+          View on Amazon
+        </a>
+        <p class="product-meta">* Affiliate link — commission earned at no cost to you</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<div class="features-bg">
+  <div class="features-inner">
+    <p class="section-label">✦ Why You'll Love It</p>
+    <h2 class="section-title">Made for Creative Souls</h2>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">🎨</div>
+        <h3 class="feature-title">50+ Unique Illustrations</h3>
+        <p class="feature-text">Each page features an original 1950s fashion drawing — gowns, accessories, hairstyles, and everyday elegance.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🌸</div>
+        <h3 class="feature-title">Mindful Escape</h3>
+        <p class="feature-text">The gentle focus of coloring reduces stress and brings calm — a quiet ritual for busy women.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🎁</div>
+        <h3 class="feature-title">Perfect Gift</h3>
+        <p class="feature-text">Beautifully presented — ideal for birthdays, Mother's Day, Christmas, or any occasion that deserves something special.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="two-col reverse">
+    <div>
+      <p class="section-label">✦ About</p>
+      <h2 class="section-title">Hello, I'm<br/><em style="font-style:italic; color:var(--rose);">Vintage Rose</em></h2>
+      <p class="section-body">
+        I'm a lover of vintage aesthetics, cozy evenings, and the kind of beauty that never goes out of style. Through CozyVintageLife, I share the products, art, and creative tools that bring a little 1950s elegance into modern life.
+      </p>
+      <br/>
+      <p class="section-body">
+        Every item I recommend is something I genuinely believe in — chosen for its craftsmanship, beauty, and the joy it brings to creative women everywhere.
+      </p>
+      <br/><br/>
+      <a class="btn" href="https://www.pinterest.com/CozyVintageLife7/" target="_blank" rel="noopener">Follow on Pinterest</a>
+    </div>
+    <div style="background: linear-gradient(160deg, var(--warm), #E8D8C8); border-radius:4px; aspect-ratio:4/5; display:flex; align-items:center; justify-content:center; padding:3rem; text-align:center;">
+      <div>
+        <p style="font-family:'Playfair Display',serif; font-size:3rem; color:var(--rose); line-height:1;">✿</p>
+        <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:1.3rem; color:var(--burgundy); margin-top:1rem; line-height:1.5;">"Life is too short<br/>for boring fashion."</p>
+        <p style="font-size:0.75rem; color:var(--gold); letter-spacing:0.15em; text-transform:uppercase; margin-top:1.2rem;">— CozyVintageLife</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PINTEREST CTA -->
+<section class="pinterest-section" id="pinterest">
+  <div class="pinterest-inner">
+    <div>
+      <p class="section-label">✦ On Pinterest</p>
+      <h2 class="section-title">Daily Vintage<br/>Inspiration</h2>
+      <p class="section-body">
+        New pins every day — vintage fashion finds, coloring book picks, gift ideas, and retro-inspired living. Follow along and never miss a curated discovery.
+      </p>
+      <br/><br/>
+      <a class="btn" href="https://www.pinterest.com/CozyVintageLife7/" target="_blank" rel="noopener">
+        Follow @CozyVintageLife7
+      </a>
+    </div>
+    <div class="pinterest-pins">
+      <div class="pin-placeholder">
+        <span class="pin-label">Gift Ideas ✦</span>
+      </div>
+      <div class="pin-placeholder">
+        <span class="pin-label">Vintage Art ✦</span>
+      </div>
+      <div class="pin-placeholder">
+        <span class="pin-label">1950s Style ✦</span>
+      </div>
+      <div class="pin-placeholder">
+        <span class="pin-label">Color & Calm ✦</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">CozyVintageLife</span>
+  <p>Curating vintage elegance for creative women · <a href="https://www.pinterest.com/CozyVintageLife7/" target="_blank" rel="noopener">Pinterest</a></p>
+  <p style="margin-top:0.5rem; font-size:0.75rem;">This site contains affiliate links. I may earn a small commission when you shop through my links, at no extra cost to you.</p>
+</footer>
+
+</body>
+</html>
